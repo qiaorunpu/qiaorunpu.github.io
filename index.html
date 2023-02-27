@@ -75,7 +75,7 @@
 <div class="widget-wrap" id="markdown"><div class="widget-header cap theme dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅 <a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
 </div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">Recent Update</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/02/27/git%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/"><span class="title">git设置代理</span></a><a class="item title" href="/2023/02/27/apt%E5%91%BD%E4%BB%A4%E9%9B%86%E9%94%A6/"><span class="title">apt命令集锦</span></a><a class="item title" href="/2023/02/27/Hexo%E6%96%B0%E5%BB%BA%E5%8D%95%E7%AF%87%E9%80%9A%E7%94%A8%E6%A8%A1%E6%9D%BF/"><span class="title">Hexo新建单篇通用模板</span></a><a class="item title" href="/2023/02/27/pip%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%9B%86%E9%94%A6/"><span class="title">pip命令行集锦</span></a><a class="item title" href="/2023/02/27/%E5%A6%82%E4%BD%95%E8%AE%A9%E8%BD%AF%E4%BB%B6%E8%B5%B0%E4%BB%A3%E7%90%86/"><span class="title">如何让软件走代理</span></a></div></div>
+<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">Recent Update</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2022/11/17/Hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="title">Hexo学习笔记</span></a><a class="item title" href="/2023/02/27/hexo%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95/"><span class="title">hexo的设置方法</span></a><a class="item title" href="/2022/11/17/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2023/02/27/git%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/"><span class="title">终端设置代理</span></a><a class="item title" href="/2023/02/27/pip%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%9B%86%E9%94%A6/"><span class="title">pip命令行集锦</span></a></div></div>
 
 
 </div>
@@ -101,7 +101,23 @@
 <div class="nav-wrap"><nav class="sub post cap"><a class="active" href="/">Recent</a><a href="/categories">Categories</a><a href="/tags">Tags</a><a href="/archives">Archives</a></nav></div>
 
   <div class="post-list post"><a class="post-card post " href="/2023/02/27/git%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">
-<article class="md"><h2 class="post-title">git设置代理</h2><div class="excerpt"><p></p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T07:03:12.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
+<article class="md"><h2 class="post-title">终端设置代理</h2><div class="excerpt"><p>Linux 让终端走代理的几种方法 - 知乎
+方法一：（推荐使用）
+  为什么说这个方法推荐使用呢？因为他只作用于当前终端中，不会影响环境，而且命令比较简单
+
+在终端中直接运行：
+123export http_proxy=http://proxyAddress:portexport ALL_PROXY=socks5://127.0.0.1:1080
+
+如果你是SSR,并且走的http的代理端...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T07:22:48.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
+</a><a class="post-card post " href="/2023/02/27/%E7%BB%88%E7%AB%AF%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/">
+<article class="md"><h2 class="post-title">终端设置代理</h2><div class="excerpt"><p>Linux 让终端走代理的几种方法 - 知乎
+方法一：（推荐使用）
+  为什么说这个方法推荐使用呢？因为他只作用于当前终端中，不会影响环境，而且命令比较简单
+
+在终端中直接运行：
+1234export http_proxy=http://proxyAddress:portexport ALL_PROXY=socks5://127.0.0.1:1080
+
+如果你是SSR,并且走的http的代理...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T07:22:48.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
 </a><a class="post-card post " href="/2023/02/27/Hexo%E6%96%B0%E5%BB%BA%E5%8D%95%E7%AF%87%E9%80%9A%E7%94%A8%E6%A8%A1%E6%9D%BF/">
 <article class="md"><h2 class="post-title">Hexo新建单篇通用模板</h2><div class="excerpt"><p>Hexo历险记之十一新建单篇通用模板Hexo历险记之十一新建单篇通用模板 - 简书
 前言经过前面的所有文章，你其实已经可以出门对别人讲，我是个博主，你可以从我的域名访问到我的博客。
@@ -111,15 +127,10 @@
 
 Hexo历险记之十一新建单篇通用...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:53:02.000Z">2023-02-27</time></span><span class="cap breadcrumb">hexo</span></div></article>
 </a><a class="post-card post " href="/2023/02/27/pip%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%9B%86%E9%94%A6/">
-<article class="md"><h2 class="post-title">pip命令行集锦</h2><div class="excerpt"><p>代理python pip设置代理
-永久设置
+<article class="md"><h2 class="post-title">pip命令行集锦</h2><div class="excerpt"><p>代理python pip设置代理有三种常用方式：
+①永久设置：1234vim /etc/profile：    export http_proxy=&#x27;http://代理服务器IP:端口号&#x27;    export https_proxy=&#x27;http://代理服务器IP:端口号&#x27;source /etc/profile
 
-命令最后加入
-12--proxy=&quot;http://serverIP:port&quot;--proxy=&quot;http://serverIP:port&quot;
-
-
-
-1pip install torch==1.8.1+cu101 torchvision==0.9.1+cu101 torchaudio==0.8.1 -f htt...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:41:51.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
+②临时设置（重连后失效）：也可以直接运...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:41:51.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
 </a><a class="post-card post " href="/2023/02/27/apt%E5%91%BD%E4%BB%A4%E9%9B%86%E9%94%A6/">
 <article class="md"><h2 class="post-title">apt命令集锦</h2><div class="excerpt"><p>
 删除缓存中的所有包
@@ -158,8 +169,8 @@ hexo 通过
 1hexo g -d
 
 今天遇到了部署登录不上去的问题在使用hexo g -d 部署的时候，上传失败，并要求重新输入账号密码进行上传，输入密码后报了下面的错误：
-123456...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T04:16:59.000Z">2023-02-27</time></span></div></article>
-</a><a class="post-card post " href="/2022/11/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+123456...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T04:16:59.000Z">2023-02-27</time></span><span class="cap breadcrumb">hexo</span></div></article>
+</a><a class="post-card post " href="/2022/11/17/Hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 <article class="md"><h2 class="post-title">Hexo学习笔记</h2><div class="excerpt"><p>1. 如何创建自己自己的首页qiaorunpu.github.io
 2.如何搭建Hexo【2021最新版】保姆级Hexo+github搭建个人博客
 2.2搭建图床如何利用 Github 搭建自己的免费图床？ - 知乎
@@ -168,7 +179,7 @@ Hexo博客教程之写文章_哔哩哔哩_bilibili
 1234567891011# 新建文章hexo new post &quot;My New...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2022-11-16T18:56:59.118Z">2022-11-17</time></span><span class="cap breadcrumb">Sports</span></div></article>
 </a><a class="post-card post " href="/2022/11/17/hello-world/">
 <article class="md"><h2 class="post-title">Hello World</h2><div class="excerpt"><p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2022-11-16T18:37:05.518Z">2022-11-17</time></span></div></article>
+Qu...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2022-11-16T18:37:05.518Z">2022-11-17</time></span><span class="cap breadcrumb">hexo</span></div></article>
 </a></div>
   
 
