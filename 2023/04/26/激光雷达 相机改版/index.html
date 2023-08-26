@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>垃圾站</title>
+
+  
+    <meta name="description" content="激光雷达 相机改版 ORB-based SLAM accelerator on SoC FPGAFPGA 在嵌入式设备领域变得流行，因为与嵌入式 CPU 或 GPU 相比，它们能够实现实时性能，同时保持低能耗。与其他系统相比，可以分解为可并行任务的应用程序（例如基于视觉的对象检测、声音定位、机器学习推理和图像分类）在 FPGA 上显示出出色的结果。 刘等人。 [15] 提出了一种用于实时对象检测的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="垃圾站">
+<meta property="og:url" content="http://example.com/2023/04/26/%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE%20%E7%9B%B8%E6%9C%BA%E6%94%B9%E7%89%88/index.html">
+<meta property="og:site_name" content="垃圾站">
+<meta property="og:description" content="激光雷达 相机改版 ORB-based SLAM accelerator on SoC FPGAFPGA 在嵌入式设备领域变得流行，因为与嵌入式 CPU 或 GPU 相比，它们能够实现实时性能，同时保持低能耗。与其他系统相比，可以分解为可并行任务的应用程序（例如基于视觉的对象检测、声音定位、机器学习推理和图像分类）在 FPGA 上显示出出色的结果。 刘等人。 [15] 提出了一种用于实时对象检测的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-25T16:15:39.295Z">
+<meta property="article:modified_time" content="2023-04-29T05:33:11.413Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">垃圾站</div></a></div>
+
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"></div></div></div>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2023-04-25T16:15:39.295Z">2023-04-26</time></div></div>
+
+<article class='content md post'>
+
+<p>激光雷达 相机改版</p>
+<h1 id="ORB-based-SLAM-accelerator-on-SoC-FPGA"><a href="#ORB-based-SLAM-accelerator-on-SoC-FPGA" class="headerlink" title="ORB-based SLAM accelerator on SoC FPGA"></a>ORB-based SLAM accelerator on SoC FPGA</h1><p>FPGA 在嵌入式设备领域变得流行，因为与嵌入式 CPU 或 GPU 相比，它们能够实现实时性能，同时保持低能耗。与其他系统相比，可以分解为可并行任务的应用程序（例如基于视觉的对象检测、声音定位、机器学习推理和图像分类）在 FPGA 上显示出出色的结果。</p>
+<p>刘等人。 [15] 提出了一种用于实时对象检测的 FPGA 加速器，</p>
+<p>Zhao 等人。 [30] 提出了一种用于 3-D 声音定位的 GPU 加速器。与 CPU 对应物相比，这两项工作都利用问题中固有的并行性来实现大幅加速。随着物联网 (IoT) 设备在我们日常生活中的普及，业界正在看到更多需要低功耗和高性能的应用。</p>
+<p>陈等人。 [6] 详细介绍了行业在为物联网设备选择合适的平台时面临的各种挑战，同时还提出了设计流程和软件工具来帮助应对这些挑战。当应用要求对性能和功耗提出严格要求时，该白皮书为使用 SoC-FPGA 提供了强有力的理由。与 CPU 或 GPU 相比，部署 FPGA 加速器的主要缺点是资源受限和开发时间较长。与 GPU 相比，FPGA 的算术单元、内存和逻辑元件要少得多。将应用程序迁移到 FPGA 的一般策略包括优化算法以适应资源受限的设备，同时保持实时性能。</p>
+<p>张等。 [28] 和李等人。 [12] 提出修改，如位宽修剪、数据量化和软硬件协同设计，以适应嵌入式设备上的应用程序，而不会牺牲太多准确性。 FPGA 加速器开发通常需要 FPGA 设计和目标应用方面的专业知识，这使得开发和验证设计既昂贵又耗时。要减少部署 FPGA 加速器的开发时间和成本，需要对当前的 CAD 软件工具链进行重大改进。</p>
+<p>郝等人。 [10][11]，徐，等。 [26] 和张等人。 [29] 提出了在给定深度神经网络的高级规范的情况下生成硬件设计的自动化流程。他们利用各种设计空间探索技术来同时优化应用程序的准确性、性能和资源利用率，从而自动为边缘计算设备生成最佳实现，而无需手动设计工作。 SLAM 算法是可并行化的并且是能源密集型的，因此非常适合 FPGA 加速。之前有几项工作研究了 FPGA 上的 SLAM 加速。这些作品可以大致分为两类：前端 ORB 特征提取加速器和后端 Bundle Adjustment 加速器。方等。 [8] 实施了一个 ORB 加速器以集成到他们的视觉 SLAM 流程中。他们能够在以 200MHz 运行的 FPGA 上以 640x480 图像实现 67 fps。他们通过截断计算中间值的宽度来优化一些资源。 </p>
+<p>Weberruss 等人。 [24] 提出了一种多尺度 ORB 加速器。他们在 1920x1080 图像上达到了 72fps，以 1 像素&#x2F;周期处理图像。 </p>
+<p>Tran 等人。 [22] 提出了一种基于流的 ORB 加速器，专注于使用动态时钟门控进行动态功率优化，以及中间计算值的阈值引导位宽修剪。没有报告性能数据。两项参考研究 [22、24] 使用 Harris 角点检测算法而不是 FAST 进行角点检测。虽然 Harris Corner 在计算上更复杂，但它在角点提取中提供了更好的准确性。</p>
+<p>秦等。 [19] 提出了一种基于 FPGA SoC 的加速器来针对 SLAM 的 Bundle 调整部分。他们提出了一种硬件&#x2F;软件协同设计的加速器，可以加速算法的 Schur Complement 计算。与 ARM 实施相比，他们的工作实现了 1.5 倍的加速。作者在 [13] 中进一步扩展了这项工作，并将加速比提高到 ARM 的 7.5 倍。</p>
+<p>吴等。 [25] 提出了一种用于 DS-SLAM 的 FPGA 加速器，一种基于神经网络的 SLAM [27]。基于神经网络的 SLAM 已经在该领域出现，因为它们更准确；但是，计算成本要高一个数量级。作者实现了一个名为 HERO 的平台，该平台的能效是桌面系统的 5 倍，同时运行速度为 5fps。</p>
+<p>刘等人。 [16]提出了一个为本地化加速生成硬件的框架。它们能够比桌面 CPU 实现高达 8 倍的加速，同时消耗大量资源。一些工作实现了端到端 SLAM 加速器。博伊科斯等人。 [3] 在 Zynq SOC 上实现完整的 LSD-SLAM 流水线。 </p>
+<p>LSD-SLAM 是一种半密集直接视觉 SLAM 算法[7]。它们将计算密集型优化问题卸载到 FPGA 上，而 CPU 负责簿记和其他次要任务。他们能够在 640x480 图像上达到 22fps。</p>
+<p>阿斯加里等。 [2] 提出了一种端到端的基于 ORB 的 SLAM 系统，该系统使用 EKF（扩展卡尔曼滤波器）作为优化后端。 EKF 已经有几年没有在机器人社区中使用了，因为基于图形的方法已经接管了 SLAM 的后端。作者实现了一个比 eSLAM [14] 更省电、更快的系统，但在论文中没有提到准确性，因此很难衡量它是否在现实场景中执行。</p>
+<p>刘等人。 [14] 在 Zynq SoC 上实现基于 ORB 特性的视觉 SLAM 系统。特征提取和匹配被卸载到 FPGA，而位姿优化、位姿估计和地图更新在 CPU 上执行。他们还提出了一种对 BRIEF 模式的硬件友好优化，这会花费更少的 FPGA 资源，但会产生不太准确的系统。我们在 Sectio 中更详细地比较了上述作品的硬件实现</p>
+<h1 id="eSLAM-An-Energy-Efficient-Accelerator-for-Real-Time-ORB-SLAM-on-FPGA-Platform"><a href="#eSLAM-An-Energy-Efficient-Accelerator-for-Real-Time-ORB-SLAM-on-FPGA-Platform" class="headerlink" title="eSLAM: An Energy-Efficient Accelerator for Real-Time ORB-SLAM on FPGA Platform"></a>eSLAM: An Energy-Efficient Accelerator for Real-Time ORB-SLAM on FPGA Platform</h1><p>之前已经做出了一些努力来在低功耗平台上加速视觉 SLAM，但是到目前为止还没有在此类平台上提出完全集成的基于 ORB 的视觉 SLAM</p>
+<p>在**[2]和[4]中分别在视觉SLAM系统的FPGA上加速了特征匹配和ORB提取**。</p>
+<p>基于 SIFT 特征的 SLAM 在 FPGA [6] 上实现，其中仅加速了<strong>矩阵计算</strong>，但不涉及最耗时的部分，<strong>即特征提取。</strong></p>
+<p>基于光流的视觉惯性里程计在 ASIC [11] 上实现，计算强度相对较低，但在光照变化或大运动&#x2F;位移的场景中可能会失败，因为光流法的基本假设在这些场景中无效 [ 5].</p>
+<p>在本文中，eSLAM 被提出作为基于 ORB 的视觉 SLAM 系统的异构架构<strong>。最耗时的特征提取和匹配过程</strong>在 FPGA 上加速，而其余任务包括姿态估计、姿态优化和地图更新在主机 ARM 处理器上执行。本文的主要贡献如下： </p>
+<p>• 提出了一种新型的基于 ORB 的视觉 SLAM 加速器，用于节能 FPGA 平台上的实时应用。 • 使用旋转对称的 ORB 描述符模式使我们的算法对硬件更加友好。 • 进一步利用包括重新调度和并行化在内的优化来提高计算吞吐量。本文的其余部分安排如下。第 2 节介绍了基于 ORB 的视觉 SLAM 框架和引入的旋转对称描述符。第 3 节说明了 eSLAM 的详细架构。实验结果在第 4 节中针对所提出的 eSLAM 进行了评估。结论性评论在第 5 节中给出。</p>
+<h1 id="An-FPGA-Based-Energy-Efficient-DS-SLAM-Accelerator-for-Mobile-Robots-in-Dynamic-Environment"><a href="#An-FPGA-Based-Energy-Efficient-DS-SLAM-Accelerator-for-Mobile-Robots-in-Dynamic-Environment" class="headerlink" title="An FPGA Based Energy Efficient DS-SLAM Accelerator for Mobile Robots in Dynamic Environment"></a>An FPGA Based Energy Efficient DS-SLAM Accelerator for Mobile Robots in Dynamic Environment</h1><p><strong>随着移动机器人的SLAM算法越来越复杂，传统移动平台上的通用处理器已经不能满足实时性和能耗的要求。 S</strong>LAM算法的硬件加速已成为机器人领域的重要研究。<br><em>在 [16] 中，在 FPGA 中实现的加速器可以扩展实际的 EKF-SLAM（扩展卡尔曼滤波器 SLAM）系统，并在实时约束下观察和校正多达 45 个地标。然而，由于 EKF-SLAM 算法的复杂度随着转换地标而增加，因此不适用于大规模环境。大多数操作是顺序执行的；因此，并行架构的优势无法体现。</em><br><em>对于 LSD-SLAM（大规模直接单目 SLAM）算法，Konstantinos Boikos 等人。提出基于 FPGA SoC（片上系统）[17] 的硬件实现。该设计表明，FPGA SoC 可以将更密集的 SLAM 算法引入嵌入式低功耗设备，并且具有比其他解决方案更高的性能。然而，本工作实现的SLAM算法较为简单，限制了系统在复杂场景下的实际部署。</em><br><em>M. Abouzahir 等人。使用 OpenCL 在 FPGA 上实现大规模并行处理，实现 Fast-SLAM 系统 [18]。与基于GPU的实现相比，处理时间加快了7.5倍。研究表明，实时SLAM系统可以通过软硬件协同设计的方法在异构嵌入式平台上实现。</em><br><em>eSLAM 由 Runze Liu 等人提出。 [19].在基于ARM处理器和FPGA板卡的异构平台上，实现了一个高能效的ORB-SLAM（Oriented Fast and Rotated Brief SLAM）系统。这项工作将最耗时的特征提取和匹配过程放在FPGA上进行加速，而其余线程则在ARM处理器上执行。 eSLAM 提出了一种改进的旋转对称 BRIEF（Binary Robust Independent Elementary Features）描述符。通过减少轮换测试位置的操作，显着降低了计算和存储消耗。同时，通过流水线设计，进一步提高了吞吐量，减少了内存。</em></p>
+<p>可以看出，在嵌入式平台上实现的SLAM算法比较简单，语义SLAM硬件实现方面的相关工作还比较欠缺。因此，本文提出了一种基于HERO平台实现语义SLAM算法的方法。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/04/20/%E5%9F%BA%E4%BA%8EFPGA%E7%9A%84SLAM%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6_%E6%A2%81%E9%A2%96.pdf/">2023-04-20</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.15.1';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js'
+  };
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
