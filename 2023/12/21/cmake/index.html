@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>cmake</title>
+
+  
+    <meta name="description" content="GCC 集成工具可以一键编译，但是Ubuntu需要一步一步操作 执行文件 1.&#x2F;a.out   gcc的四个过程https:&#x2F;&#x2F;blog.csdn.net&#x2F;ruibin_cao&#x2F;article&#x2F;details&#x2F;91562140  预处理,  主要是把头文件展开，完成函数或结构体等的声明;    gcc -E main.c -o main.i   12345- 编译,  主要是把c源码文件翻译成汇编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cmake">
+<meta property="og:url" content="http://example.com/2023/12/21/cmake/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="GCC 集成工具可以一键编译，但是Ubuntu需要一步一步操作 执行文件 1.&#x2F;a.out   gcc的四个过程https:&#x2F;&#x2F;blog.csdn.net&#x2F;ruibin_cao&#x2F;article&#x2F;details&#x2F;91562140  预处理,  主要是把头文件展开，完成函数或结构体等的声明;    gcc -E main.c -o main.i   12345- 编译,  主要是把c源码文件翻译成汇编">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202312211403271.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202312211404034.png">
+<meta property="article:published_time" content="2023-12-21T06:04:58.000Z">
+<meta property="article:modified_time" content="2023-12-21T06:06:06.431Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202312211403271.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">学习笔记</div></a></div>
+
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">cmake</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-make%E5%B7%A5%E5%85%B7"><span class="toc-text">1. make工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Makefile%E6%96%87%E4%BB%B6"><span class="toc-text">2. Makefile文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Makefile%E7%9A%84%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">3. Makefile的简单示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BC%AA%E7%9B%AE%E6%A0%87"><span class="toc-text">4. 伪目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Makefile-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%98%E9%87%8F"><span class="toc-text">5. Makefile 自动化变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90%E5%A4%9A%E4%B8%AA%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6"><span class="toc-text">6. 编译生成多个可执行文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-make%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E5%B5%8C%E5%87%BD%E6%95%B0"><span class="toc-text">7. make常用的内嵌函数</span></a></li></ol></div></div></div>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/linux/">linux</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/linux/cmake/">cmake</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2023-12-21T06:04:58.000Z">2023-12-21</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>cmake</span></h1>
+<h1 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202312211403271.png" alt="image-20211020142317372"></p>
+<p>集成工具可以一键编译，但是Ubuntu需要一步一步操作</p>
+<p>执行文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./a.out</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202312211404034.png" alt="image-20211020142448236"></p>
+<p>gcc的四个过程<a target="_blank" rel="noopener" href="https://blog.csdn.net/ruibin_cao/article/details/91562140">https://blog.csdn.net/ruibin_cao/article/details/91562140</a></p>
+<ul>
+<li><p>预处理,  主要是把头文件展开，完成函数或结构体等的声明;</p>
+</li>
+<li><pre><code>  gcc -E main.c -o main.i
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 编译,  主要是把c源码文件翻译成汇编文件;</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">    gcc -s main.i -o hello.s</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>汇编,  主要是把汇编文件翻译成二进制的目标文件;</p>
+</li>
+<li><p>&#96;&#96;&#96;<br>  gcc -c main.s  -o main.o</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 链接，  把所有的目标文件添加上和系统对接的代码，最后生成可执行程序;</span><br><span class="line"></span><br><span class="line">- ```c</span><br><span class="line">    g++ mian.o -o hello</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>gcc 编译多个文件的时候很麻烦，使用Makefile</p>
+<h1 id="make工具和makefile"><a href="#make工具和makefile" class="headerlink" title="make工具和makefile"></a>make工具和makefile</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/QG-whz/p/5461110.html">Linux工具入门：make工具与Makefile文件</a></p>
+<h3 id="1-make工具"><a href="#1-make工具" class="headerlink" title="1. make工具"></a>1. make工具</h3><p>利用make工具可以自动完成编译工作，这些工作包括：</p>
+<ul>
+<li>如果修改了某几个源文件，则只重新编译这几个源文件</li>
+<li>如果某个头文件被修改了，则重新编译所有包含该头文件的源文件</li>
+</ul>
+<p>利用这种自动编译可以大大简化开发工作，避免不必要的重新编译。make工具通过一个称为Makefile的文件来完成并自动维护编译工作，Makefile文件描述了整个工程的编译、连接规则。</p>
+<h3 id="2-Makefile文件"><a href="#2-Makefile文件" class="headerlink" title="2. Makefile文件"></a>2. Makefile文件</h3><p>Makefile描述了整个工程的编译连接规则。Makefile的基本规则为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TARGET...: DEPENDENCIES...</span><br><span class="line">    COMMAND</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>TARGER：目标程序产生的文件，如可执行文件和目标文件，目标也可以是要执行的动作，如clean，也称为伪目标。</li>
+<li>DEPENDENCIES:依赖是用来产生目标的输入文件列表，一个目标通常依赖与多个文件。</li>
+<li>COMMAND:命令是make执行的动作（命令是shell命令或是可在shell下执行的程序），注意每个命令行的起始字符必须为TAB字符。</li>
+<li>如果DEPENDENCIES中有一个或多个文件更新的话，COMMAND就要执行，这就是Makefile最核心的内容。</li>
+</ul>
+<h3 id="3-Makefile的简单示例"><a href="#3-Makefile的简单示例" class="headerlink" title="3. Makefile的简单示例"></a>3. Makefile的简单示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch add.c add.h sub.c sub.h main.c</span><br></pre></td></tr></table></figure>
+
+<p>现在有这5个文件add.h 、sub.h中包含了函数声明，add.c、sub.c中包含了函数实现，main.c调用了函数。Makefile的文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">main:main.o add.o sub.o        【目标文件是main，它依赖于main.o,add.o,sub.o这三个文件】</span><br><span class="line">        gcc -Wall -g main.o add.o sub.o -o main    【由依赖文件生成目标文件应该执行的命令】</span><br><span class="line">main.o:main.c</span><br><span class="line">        gcc -Wall -g -c main.c -o main.o</span><br><span class="line">add.o:add.c add.h</span><br><span class="line">        gcc -Wall -g -c add.c -o add.o</span><br><span class="line">sub.o:sub.c sub.h</span><br><span class="line">        gcc -Wall -g -c sub.c -o sub.o</span><br></pre></td></tr></table></figure>
+
+<p>保存Makefile文件后执行make命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">gcc -Wall -g -c main.c -o main.o</span><br><span class="line">gcc -Wall -g -c add.c -o add.o</span><br><span class="line">gcc -Wall -g -c sub.c -o sub.o</span><br><span class="line">gcc -Wall -g main.o add.o sub.o -o main</span><br></pre></td></tr></table></figure>
+
+<p>可以看到执行了make之后，由于 目标文件main依赖于 main.o add.o sub.o ，所以是需要先 生成 这三个.o文件，最后才生成main。<br>如果此时再次输入make，会看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">make: &#x27;main&#x27; is up to date.</span><br></pre></td></tr></table></figure>
+
+<p>make的编译规则是根据<strong>时间</strong>来进行判断，一旦依赖列表中某个文件的更新时间比目标文件晚，则会重新生成目标，否则会出现以上提示。<br>默认情况下敲击make将生成第一个目标，也就是main。也可以生成指定的目标：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make add.o   【指定只生成add.o文件】</span><br></pre></td></tr></table></figure>
+
+<p>Makefile文件的名字不一定得命名为“Makefile”或”makefile”，使用其他名字也是可以的。例如我们由一个文件叫myMakefile，同样可以使用它：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -f myMakefile   【-f 选项的作用是把名字&quot;myMakefile&quot;作为makefile来对待。】</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-伪目标"><a href="#4-伪目标" class="headerlink" title="4. 伪目标"></a>4. 伪目标</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TARGET...: DEPENDENCIES...</span><br><span class="line">    COMMAND    【注意COMMAND之前是一个TAB，不是空格】</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>前面说过，TARGET除了可以是目标文件之外，还可以是伪目标。执行伪目标的效果等于执行了某一个动作， 并不产生目标文件。例如添加一个伪目标：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">main:main.o add.o sub.o     </span><br><span class="line">        gcc -Wall -g main.o add.o sub.o -o main  </span><br><span class="line">main.o:main.c</span><br><span class="line">        gcc -Wall -g -c main.c -o main.o</span><br><span class="line">add.o:add.c add.h</span><br><span class="line">        gcc -Wall -g -c add.c -o add.o</span><br><span class="line">sub.o:sub.c sub.h</span><br><span class="line">        gcc -Wall -g -c sub.c -o sub.o</span><br><span class="line">clean :                                        【这是一个伪目标】</span><br><span class="line">        rm -f $(OBJECTS) main    </span><br></pre></td></tr></table></figure>
+
+<p>使用make来执行伪目标：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make clean</span><br><span class="line">rm -f main.o add.o sub.o main  </span><br></pre></td></tr></table></figure>
+
+<p>可以看到make将执行伪目标下面的命令。</p>
+<h3 id="5-Makefile-自动化变量"><a href="#5-Makefile-自动化变量" class="headerlink" title="5. Makefile 自动化变量"></a>5. Makefile 自动化变量</h3><p>从上面的Makefile文件我们发现一些问题：有时候目标文件的依赖列表过长，或者命令重复书写。利用Makefile自动化变量可以解决这个问题。</p>
+<table>
+<thead>
+<tr>
+<th>选项名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$@</td>
+<td>规则的目标文件名</td>
+</tr>
+<tr>
+<td>$&lt;</td>
+<td>规则的第一个依赖文件名</td>
+</tr>
+<tr>
+<td>$^</td>
+<td>规则的所有依赖文件列表</td>
+</tr>
+</tbody></table>
+<p>刚才的Makefile文件，我们可以改写为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">main:main.o add.o sub.o</span><br><span class="line">        gcc -Wall -g $^ -o $@      【等价于 gcc -Wall -g main.o add.o sub.o -o main】</span><br><span class="line">main.o:main.c</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">add.o:add.c add.h</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">sub.o:sub.c sub.h</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br></pre></td></tr></table></figure>
+
+<p>执行make，可以看到效果和之前是一样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br><span class="line">gcc -Wall -g -c main.c -o main.o</span><br><span class="line">gcc -Wall -g -c add.c -o add.o</span><br><span class="line">gcc -Wall -g -c sub.c -o sub.o</span><br><span class="line">gcc -Wall -g main.o add.o sub.o -o main</span><br></pre></td></tr></table></figure>
+
+<p>还可以<strong>自定义变量</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">OBJECTS = main.o add .o sub.o 【OBJECTS是自定义的变量名】</span><br><span class="line">main:$(OBJECTS)                        【可以在需要的地方使用变量名进行替换，替换规则为$(变量名)】</span><br><span class="line">        gcc -Wall -g $^ -o $@</span><br><span class="line">main.o:main.c</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">add.o:add.c add.h</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">sub.o:sub.c sub.h</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-编译生成多个可执行文件"><a href="#6-编译生成多个可执行文件" class="headerlink" title="6. 编译生成多个可执行文件"></a>6. 编译生成多个可执行文件</h3><p>假设现在不只是想生成可执行main，还想生成可执行文件main2，可以这样写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BIN = main main2                【自定义变量BIN】</span><br><span class="line">OBJECTS= main.o add.o sub.o  </span><br><span class="line">all : $(BIN)   【关注重点】</span><br><span class="line">main : $(OBJECTS)</span><br><span class="line">        gcc -Wall -g  $&lt; -o $@</span><br><span class="line">main2: $(OBJECTS)</span><br><span class="line">        gcc -Wall -g  $&lt; -o $@</span><br><span class="line">main.o : main.c</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">main2.o :msin2.c</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">add.o:add.c add.h</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">sub.o:sub.c sub.h</span><br><span class="line">        gcc -Wall -g -c $&lt; -o $@</span><br><span class="line">clean :</span><br><span class="line">        rm -f $(OBJECTS) $(BIN)</span><br></pre></td></tr></table></figure>
+
+<p>为了生成目标文件all，需要先生成BIN，也即是 main main2。这样就可以生成两个可执行文件了。利用自定义变量可以再简化这段Makefile文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">BIN = main main2</span><br><span class="line">OBJECTS= main.o add.o sub.o</span><br><span class="line">CC = gcc</span><br><span class="line">CFALGS = -Wall -g</span><br><span class="line">all : $(BIN)</span><br><span class="line">main : $(OBJECTS)</span><br><span class="line">        $(CC) $(CFALGS)  $&lt; -o $@</span><br><span class="line">main2: $(OBJECTS)</span><br><span class="line">        $(CC) $(CFALGS)  $&lt; -o $@       </span><br><span class="line">main.o : main.c</span><br><span class="line">        $(CC) $(CFALGS) -c  $&lt; -o $@</span><br><span class="line">main2.o :msin2.c</span><br><span class="line">        $(CC) $(CFALGS) -c  $&lt; -o $@</span><br><span class="line">add.o:add.c add.h</span><br><span class="line">        $(CC) $(CFALGS) -c  $&lt; -o $@</span><br><span class="line">sub.o:sub.c sub.h</span><br><span class="line">        $(CC) $(CFALGS) -c  $&lt; -o $@</span><br><span class="line">clean :</span><br><span class="line">        rm -f $(OBJECTS) $(BIN)</span><br></pre></td></tr></table></figure>
+
+<p>但是这样看起来，重复的内容还是比较多，可以使用下面的方法来继续简化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">BIN = main main2</span><br><span class="line">OBJECTS= main.o add.o sub.o</span><br><span class="line">CC = gcc</span><br><span class="line">CFALGS = -Wall -g</span><br><span class="line">all : $(BIN)</span><br><span class="line">main : $(OBJECTS)</span><br><span class="line">        $(CC) $(CFALGS)  $&lt; -o $@</span><br><span class="line">main2: $(OBJECTS)</span><br><span class="line">        $(CC) $(CFALGS)  $&lt; -o $@       </span><br><span class="line">.o .c :                                               【关注重点在这里】</span><br><span class="line">        $(CC) $(CFALGS) -c  $&lt; -o $@</span><br><span class="line">clean :</span><br><span class="line">        rm -f $(OBJECTS) $(BIN)</span><br></pre></td></tr></table></figure>
+
+<p>利用 .o.c :，可以自动地把所有的.c文件到.o文件的生成都使用同一条命令来完成，简化的重复的工作。</p>
+<h3 id="7-make常用的内嵌函数"><a href="#7-make常用的内嵌函数" class="headerlink" title="7. make常用的内嵌函数"></a>7. make常用的内嵌函数</h3><p>首先看make中函数调用的形式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//函数调用</span><br><span class="line">$(function arguments)     【function是函数名称，arguments是参数，使用$来调用】</span><br></pre></td></tr></table></figure>
+
+<p>值得注意的是，函数名称与参数之间是空格。</p>
+<p>来看三个常用make内嵌函数。</p>
+<ul>
+<li>$(wildcard PATTERN) 作用是在当前目录下匹配模式的文件。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src = $(wildcard *.c)  【在当前目录下搜索所有.c文件，文件名称列表保存到src中】</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$(patsubst PATTENR,REPLACEMENT,TEXT) 模式替换函数，作用是把TEXT中文件列表从模式PATTENR替换为REPLACEMENT模式。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(patsubst %.c,%.o,$src)  【把src中的.c文件列表中的文件从.c替换为.o】</span><br><span class="line">等价于：</span><br><span class="line">$(src:.c =.o)   【这种方式更常用】</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>shell函数</li>
+</ul>
+<p>shell函数可以执行shell下的命令，同样是使用$来引用，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(shell ls -d */) 【将当前目录下的所有文件夹都列出来】</span><br></pre></td></tr></table></figure>
+
+<p>下面通过一个多级目录的例子来使用这些函数。场景是这样的，当前目录下有main.c文件，同时还有若干个目录，每个目录中都有各自的.c文件。利用所有的.c文件编译生成最后的main文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CC       = gcc</span><br><span class="line">CFLAGS   = -Wall -g</span><br><span class="line">BIN      = main</span><br><span class="line">SUBDIR   = $(shell ls -d */)      【SUBDIR变量保存了子目录的列表】</span><br><span class="line">ROOTSRC  = $(wildcard *.c)  【ROOTSRC保存了当前目录下的.c文件列表】</span><br><span class="line">ROOTOBJ  = $(ROOTSRC:%.c = %.o)  【ROOTBOJ 保存了当前目录下.c文件同名的.o列表】</span><br><span class="line">SUBSRC   = $(shell find $(SUBDIR) -name &#x27;*.c&#x27;)  【SUBSRC 保存了所有子目录下的的.c文件】</span><br><span class="line">SUBOBJ   = $(SUBSRC:%.c = %.o)     ﻿    ﻿【SUBOBJ保存了所有子目录下的.c文件同名的.o文件列表】</span><br><span class="line">$(BIN):$(ROOTOBJ) $(SUBOBJ)         【main的生成依赖与当前目录及所有子目录下的.o文件】</span><br><span class="line">        $(CC) $(CFLAGS) -o $(BIN) $(ROOTOBJ) $(SUBOBJ)</span><br><span class="line">.o .c:</span><br><span class="line">        $(CC) $(CFLAGS) -c $&lt; -o $@    </span><br><span class="line">clean:</span><br><span class="line">        rm -f $(BIN) $(ROOTOBJ) $(SUBOBJ)</span><br></pre></td></tr></table></figure>
+
+<h1 id="文章链接"><a href="#文章链接" class="headerlink" title="文章链接"></a>文章链接</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV16V411k7eF?p=8">手把手教你写CMake一条龙教程——421施公队Clang出品</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vE411h7Fi?p=18&spm_id_from=pageDriver">正点原子【第一期】手把手教你学Linux之Ubuntu入门篇</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.hahack.com/codes/cmake/">CMake 入门实战</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/52php/p/5684588.html">CMake命令&#x2F;函数汇总（翻译自官方手册</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wzzfeitian/article/details/40963457">cmake使用示例与整理总结</a></p>
+<p><a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.17/guide/tutorial/index.html#id1">CMake Tutorial</a><a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.17/guide/tutorial/index.html#cmake-tutorial">¶</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/coderfenghc/archive/2012/06/16/CMake_ch_01.html">CMake 手册详解（一）</a></p>
+<h1 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h1><ul>
+<li><p>cmake如何编译源码生成sln工程</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/QG-whz/category/685776.html">博客</a></p>
+</li>
+</ul>
+<p>cc 指的是C语言</p>
+<p>g++指的是C++</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/12/21/ubuntu%E5%91%BD%E4%BB%A4/">ubuntu命令</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/12/21/windows%E5%91%BD%E4%BB%A4%E8%A1%8C/">windows命令行</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.15.1';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js'
+  };
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
