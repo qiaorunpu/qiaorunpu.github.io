@@ -23,19 +23,17 @@
   <title>g++的命令</title>
 
   
-    <meta name="description" content="GNU编译器集合（GCC）是由GNU项目生产的优化编译器，支持各种编程语言、硬件架构和操作系统。自由软件基金会（FSF）根据GNU通用公共许可证（GNUGPL）将GCC作为自由软件分发。 GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。">
+    <meta name="description" content="GNUGNU编译器集合（GCC）是由GNU项目生产的优化编译器，支持各种编程语言、硬件架构和操作系统。自由软件基金会（FSF）根据GNU通用公共许可证（GNUGPL）将GCC作为自由软件分发。 GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。 What is the difference between g++ and gcc?   gcc and g++ are compi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="g++的命令">
 <meta property="og:url" content="http://example.com/2023/03/04/gcc%E7%9A%84%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="GNU编译器集合（GCC）是由GNU项目生产的优化编译器，支持各种编程语言、硬件架构和操作系统。自由软件基金会（FSF）根据GNU通用公共许可证（GNUGPL）将GCC作为自由软件分发。 GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。">
+<meta property="og:description" content="GNUGNU编译器集合（GCC）是由GNU项目生产的优化编译器，支持各种编程语言、硬件架构和操作系统。自由软件基金会（FSF）根据GNU通用公共许可证（GNUGPL）将GCC作为自由软件分发。 GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。 What is the difference between g++ and gcc?   gcc and g++ are compi">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202303061709378.png">
 <meta property="article:published_time" content="2023-03-04T09:29:43.000Z">
-<meta property="article:modified_time" content="2023-12-21T03:10:43.741Z">
+<meta property="article:modified_time" content="2023-12-21T03:22:43.626Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202303061709378.png">
   
   
 
@@ -81,9 +79,7 @@
 
 <div class="widgets">
 
-
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">Recent Update</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/02/27/%E5%A6%82%E4%BD%95%E8%AE%A9%E8%BD%AF%E4%BB%B6%E8%B5%B0%E4%BB%A3%E7%90%86/"><span class="title">如何让软件走代理</span></a><a class="item title" href="/2023/02/27/Hexo%E7%9A%84%E5%A4%87%E5%BF%98%E5%BD%95/"><span class="title">Hexo的备忘录</span></a><a class="item title" href="/2023/02/27/Hexo%E6%96%B0%E5%BB%BA%E5%8D%95%E7%AF%87%E9%80%9A%E7%94%A8%E6%A8%A1%E6%9D%BF/"><span class="title">Hexo新建单篇通用模板</span></a><a class="item title" href="/2023/03/04/gcc%E7%9A%84%E5%91%BD%E4%BB%A4/"><span class="title">g++的命令</span></a><a class="item title" href="/2023/02/27/linux%E7%BB%88%E7%AB%AF%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/"><span class="title">linux终端设置代理</span></a></div></div>
-
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">g++的命令</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GNU"><span class="toc-text">GNU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-the-difference-between-g-and-gcc"><span class="toc-text">What is the difference between g++ and gcc?</span></a></li></ol></div></div></div>
 
 
 
@@ -102,9 +98,25 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>g++的命令</span></h1>
-<p>GNU编译器集合（GCC）是由GNU项目生产的优化编译器，支持各种编程语言、硬件架构和操作系统。自由软件基金会（FSF）根据GNU通用公共许可证（GNUGPL）将GCC作为自由软件分发。</p>
+<h2 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a>GNU</h2><p>GNU编译器集合（GCC）是由GNU项目生产的优化编译器，支持各种编程语言、硬件架构和操作系统。自由软件基金会（FSF）根据GNU通用公共许可证（GNUGPL）将GCC作为自由软件分发。</p>
 <p>GCC（特别是其中的C语言编译器）也常被认为是跨平台编译器的事实标准。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202303061709378.png" alt="image-20230306170956187"></p>
+<h2 id="What-is-the-difference-between-g-and-gcc"><a href="#What-is-the-difference-between-g-and-gcc" class="headerlink" title="What is the difference between g++ and gcc?"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/173007">What is the difference between g++ and gcc?</a></h2><blockquote>
+<p>  <code>gcc</code> and <code>g++</code> are compiler-drivers of the GNU Compiler <em>Collection</em> (which was once upon a time just the GNU <em>C Compiler</em>).</p>
+</blockquote>
+<ul>
+<li><code>gcc</code>: GNU C   Compiler</li>
+<li><code>g++</code>: GNU C++ Compiler</li>
+</ul>
+<p>The main differences:</p>
+<ol>
+<li><code>gcc</code> will compile: <code>*.c\*.cpp</code> files as C and C++ respectively.</li>
+<li><code>g++</code> will compile: <code>*.c\*.cpp</code> files but they will all be treated as C++ files.</li>
+<li>Also if you use <code>g++</code> to link the object files it automatically links in the std C++ libraries (<code>gcc</code> does not do this).</li>
+<li><code>gcc</code> compiling C files has fewer predefined macros.</li>
+<li><code>gcc</code> compiling <code>*.cpp</code> and <code>g++</code> compiling <code>*.c\*.cpp</code> files has a few extra macros.</li>
+</ol>
+<p>Extra Macros when compiling <code>*.cpp</code> files:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> __GXX_WEAK__ 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __cplusplus 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __DEPRECATED 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __GNUG__ 4</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __EXCEPTIONS 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __private_extern__ extern</span></span><br></pre></td></tr></table></figure>
 
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>

@@ -5,7 +5,7 @@
   <meta name="generator" content="Hexo 6.3.0">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
@@ -20,14 +20,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>Tag: tang - 学习笔记</title>
+  <title>产品开发流程</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/tags/tang/index.html">
+    <meta name="description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状- 态-   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态  通信波特率，有无校验位，发送频率  温补前，温补后的结果  温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  产品轴向是否正常  通信协议是否符合任务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="产品开发流程">
+<meta property="og:url" content="http://example.com/2023/02/27/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状- 态-   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态  通信波特率，有无校验位，发送频率  温补前，温补后的结果  温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  产品轴向是否正常  通信协议是否符合任务">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-27T06:40:55.000Z">
+<meta property="article:modified_time" content="2023-12-21T03:24:10.952Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -56,8 +60,10 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
   
@@ -72,45 +78,106 @@
 
 
 <div class="widgets">
-<div class="widget-wrap" id="markdown"><div class="widget-header cap theme dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅 <a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
-</div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">Recent Update</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2023/02/27/%E5%A6%82%E4%BD%95%E8%AE%A9%E8%BD%AF%E4%BB%B6%E8%B5%B0%E4%BB%A3%E7%90%86/"><span class="title">如何让软件走代理</span></a><a class="item title" href="/2023/02/27/Hexo%E7%9A%84%E5%A4%87%E5%BF%98%E5%BD%95/"><span class="title">Hexo的备忘录</span></a><a class="item title" href="/2023/02/27/Hexo%E6%96%B0%E5%BB%BA%E5%8D%95%E7%AF%87%E9%80%9A%E7%94%A8%E6%A8%A1%E6%9D%BF/"><span class="title">Hexo新建单篇通用模板</span></a><a class="item title" href="/2023/03/04/gcc%E7%9A%84%E5%91%BD%E4%BB%A4/"><span class="title">g++的命令</span></a><a class="item title" href="/2023/02/27/linux%E7%BB%88%E7%AB%AF%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/"><span class="title">linux终端设置代理</span></a></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">产品开发流程</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">需要注意的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E4%BF%9D%E5%AD%98%E7%9A%84"><span class="toc-text">需要保存的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#README%E6%A8%A1%E6%9D%BF"><span class="toc-text">README模板</span></a></li></ol></div></div></div>
+
+
 
 
 </div>
 
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">学习笔记</div></a></div>
-</header>
-
-
 
       
 
-  
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E8%BD%AF%E4%BB%B6/">软件</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:40:55.000Z">2023-02-27</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>产品开发流程</span></h1>
+<h1 id="产品开发流程"><a href="#产品开发流程" class="headerlink" title="产品开发流程"></a>产品开发流程</h1><h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><ul>
+<li><p>单片机软件开发</p>
+<ul>
+<li>软件功能实现</li>
+<li>设置产品状- 态-</li>
+</ul>
+</li>
+<li><p>MATLAB解包代码</p>
+</li>
+<li><p>上传GIT</p>
+<ul>
+<li>说明文档「协议文档和README」</li>
+<li>解包代码</li>
+<li>产品电路图</li>
+</ul>
+</li>
+<li><p>交付楼下测试状态</p>
+</li>
+</ul>
+<h2 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h2><ol>
+<li><p>产品状态</p>
+<ul>
+<li><p>通信波特率，有无校验位，发送频率</p>
+</li>
+<li><p>温补前，温补后的结果</p>
+</li>
+<li><p>温补参数是否正常「<strong>温补参数中的温度信息是否工作正常</strong>」</p>
+</li>
+</ul>
+</li>
+<li><p>软件信息</p>
+<ul>
+<li><p>产品轴向是否正常</p>
+</li>
+<li><p>通信协议是否符合任务书要求「临时协议是否删除」</p>
+</li>
+<li><p>输出标度因数是否正常</p>
+</li>
+<li><p>量程范围是否正常</p>
+</li>
+</ul>
+</li>
+<li><p>出场测试</p>
+<ul>
+<li>产品各项指标是否符合要求</li>
+</ul>
+</li>
+</ol>
+<h2 id="需要保存的"><a href="#需要保存的" class="headerlink" title="需要保存的"></a>需要保存的</h2><ul>
+<li><p>产品状态的说明文件　产品开发基于哪个代码 README．MD</p>
+</li>
+<li><p>软件开发的测试数据</p>
+</li>
+<li><p>温补数据</p>
+</li>
+<li><p>产品指标测试数据</p>
+</li>
+</ul>
+<h1 id="软件开发时候的易错点"><a href="#软件开发时候的易错点" class="headerlink" title="软件开发时候的易错点"></a>软件开发时候的易错点</h1><ul>
+<li>变量是否在每次重置的时候都会重置</li>
+<li>对正负数的判断是否正常，<strong>「补码」</strong></li>
+</ul>
+<h2 id="README模板"><a href="#README模板" class="headerlink" title="README模板"></a>README模板</h2><ul>
+<li>基本硬件类型</li>
+<li>通信波特率，有无校验位，发送频率</li>
+<li>产品轴向是否正常</li>
+<li>量程范围是否正常</li>
+<li>参数地址计算</li>
+</ul>
 
 
-  
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
+</div></section></div>
 
-<div class="nav-wrap"><nav class="sub post cap"><a href="/">Recent</a><a href="/categories">Categories</a><a class="active" href="/tags">Tag: tang</a><a href="/archives">Archives</a></nav></div>
+</article>
 
-  <div class="post-list post"><a class="post-card post " href="/2022/11/17/Hexo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-<article class="md"><h2 class="post-title">Hexo学习笔记</h2><div class="excerpt"><p>1. 如何创建自己自己的首页qiaorunpu.github.io
-2.如何搭建Hexo【2021最新版】保姆级Hexo+github搭建个人博客
-2.2搭建图床如何利用 Github 搭建自己的免费图床？ - 知乎
-3.如何发布博文大概的顺序就是
-Hexo博客教程之写文章_哔哩哔哩_bilibili
-1234567891011# 新建文章hexo new post &quot;My New...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2022-11-16T18:56:59.118Z">2022-11-17</time></span><span class="cap breadcrumb">Hexo</span></div></article>
-</a></div>
-  
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/02/27/apt%E5%91%BD%E4%BB%A4%E9%9B%86%E9%94%A6/">apt命令集锦</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/02/27/%E5%A6%82%E4%BD%95%E8%AE%A9%E8%BD%AF%E4%BB%B6%E8%B5%B0%E4%BB%A3%E7%90%86/">如何让软件走代理</a></div></section></div>
+
+
+
 
 
 
