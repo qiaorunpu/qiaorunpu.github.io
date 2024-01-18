@@ -20,18 +20,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>C语言嵌入式位操作</title>
+  <title>C语言位操作</title>
 
   
     <meta name="description" content="#define Bit(i) (0x01&lt;&lt;i) 123456789101112131415161718192021222324252627282930313233    -   [C语言按位清0和置1操作(位运算符合移位运算符组合)\_位运算清零-CSDN博客](https:&#x2F;&#x2F;blog.csdn.net&#x2F;changyi9995&#x2F;article&#x2F;details&#x2F;109251325)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言嵌入式位操作">
+<meta property="og:title" content="C语言位操作">
 <meta property="og:url" content="http://example.com/2023/12/21/C%E8%AF%AD%E8%A8%80%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BD%8D%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="#define Bit(i) (0x01&lt;&lt;i) 123456789101112131415161718192021222324252627282930313233    -   [C语言按位清0和置1操作(位运算符合移位运算符组合)\_位运算清零-CSDN博客](https:&#x2F;&#x2F;blog.csdn.net&#x2F;changyi9995&#x2F;article&#x2F;details&#x2F;109251325)">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-21T05:51:53.000Z">
-<meta property="article:modified_time" content="2023-12-27T06:52:44.605Z">
+<meta property="article:modified_time" content="2024-01-09T03:21:21.457Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -79,7 +79,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">C语言嵌入式位操作</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%AD%E4%BD%8D%E6%93%8D%E4%BD%9C%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="toc-text">二、嵌入式中位操作一些常见用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%B8%80%E4%B8%AA32bit%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C"><span class="toc-text">1、一个32bit数据的位、字节读取操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%B8%80%E4%B8%AA32bit%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E6%B8%85%E9%9B%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">2、一个32bit数据的位、字节清零操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E4%B8%80%E4%B8%AA32bit%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E7%BD%AE1%E6%93%8D%E4%BD%9C"><span class="toc-text">3、一个32bit数据的位、字节置1操作</span></a></li></ol></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">C语言位操作</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%AD%E4%BD%8D%E6%93%8D%E4%BD%9C%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="toc-text">二、嵌入式中位操作一些常见用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%B8%80%E4%B8%AA32bit%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E8%AF%BB%E5%8F%96%E6%93%8D%E4%BD%9C"><span class="toc-text">1、一个32bit数据的位、字节读取操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%B8%80%E4%B8%AA32bit%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E6%B8%85%E9%9B%B6%E6%93%8D%E4%BD%9C"><span class="toc-text">2、一个32bit数据的位、字节清零操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E4%B8%80%E4%B8%AA32bit%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BD%8D%E3%80%81%E5%AD%97%E8%8A%82%E7%BD%AE1%E6%93%8D%E4%BD%9C"><span class="toc-text">3、一个32bit数据的位、字节置1操作</span></a></li></ol></li></ol></div></div></div>
 
 
 
@@ -97,7 +97,7 @@
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/C%E8%AF%AD%E8%A8%80/">C语言</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/C%E8%AF%AD%E8%A8%80/%E8%AF%AD%E6%B3%95/">语法</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2023-12-21T05:51:53.000Z">2023-12-21</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>C语言嵌入式位操作</span></h1>
+<h1 class="article-title"><span>C语言位操作</span></h1>
 <ul>
 <li><pre><code>#define Bit(i) (0x01&lt;&lt;i)
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">-   [C语言按位清0和置1操作(位运算符合移位运算符组合)\_位运算清零-CSDN博客](https://blog.csdn.net/changyi9995/article/details/109251325)</span><br><span class="line"></span><br><span class="line">![C语言 | 嵌入式位操作精华技巧汇总_编程开发](https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202312271450119.webp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 异或操作</span><br><span class="line"></span><br><span class="line">&gt;   [史上最通俗易懂的异或运算详解【含例题及应用】-CSDN博客](https://blog.csdn.net/weixin_43899069/article/details/121048025?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-121048025-blog-9025535.235^v39^pc_relevant_yljh&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 与  或</span><br><span class="line"></span><br><span class="line">&gt;   [C语言 | 嵌入式位操作精华技巧汇总\_51CTO博客\_嵌入式c语言基础](https://blog.51cto.com/u_15244533/2845299)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-   与1相或，置1 </span><br><span class="line"></span><br><span class="line">```c</span><br><span class="line">TEST = TEST | 0x01;</span><br><span class="line">//第几位要置1就左移几位。</span><br><span class="line">TEST |= (0x01 &lt;&lt; n);  </span><br><span class="line">GPIOA-&gt;ODR |= (uint16_t)0x0400;   /* PA10输出高（置1操作） */</span><br><span class="line"></span><br></pre></td></tr></table></figure>
