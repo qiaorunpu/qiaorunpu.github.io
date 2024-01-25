@@ -23,17 +23,19 @@
   <title>windows命令行</title>
 
   
-    <meta name="description" content="（CMD）start命令带空格的路径处理办法1start &quot;&quot; &quot;D:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe&quot;  第一个参数为标题。 不管他。直接“”就可以了">
+    <meta name="description" content="教程 microsoft learn [第一週] Command Line 基本指令與操作. 學習目標：學會常見指令（例如說 cd、ls、rm、mv 等等） | by MiaHsu | Medium  CHEATSHEET   名称 用法    ver Microsoft Windows [版本 10.0.19045.3803]   whoami qaq\0202qiao">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows命令行">
 <meta property="og:url" content="http://example.com/2023/12/21/windows%E5%91%BD%E4%BB%A4%E8%A1%8C/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="（CMD）start命令带空格的路径处理办法1start &quot;&quot; &quot;D:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe&quot;  第一个参数为标题。 不管他。直接“”就可以了">
+<meta property="og:description" content="教程 microsoft learn [第一週] Command Line 基本指令與操作. 學習目標：學會常見指令（例如說 cd、ls、rm、mv 等等） | by MiaHsu | Medium  CHEATSHEET   名称 用法    ver Microsoft Windows [版本 10.0.19045.3803]   whoami qaq\0202qiao">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202401181351986.png">
 <meta property="article:published_time" content="2023-12-21T05:56:42.000Z">
-<meta property="article:modified_time" content="2024-01-17T01:51:46.829Z">
+<meta property="article:modified_time" content="2024-01-18T06:05:14.121Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202401181351986.png">
   
   
 
@@ -79,7 +81,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">windows命令行</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88CMD%EF%BC%89start%E5%91%BD%E4%BB%A4%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95"><span class="toc-text">（CMD）start命令带空格的路径处理办法</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">windows命令行</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CHEATSHEET"><span class="toc-text">CHEATSHEET</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dir%EF%BC%9A%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-text">dir：输出文件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tree%EF%BC%9A%E8%BE%93%E5%87%BA"><span class="toc-text">tree：输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#robocopy"><span class="toc-text">robocopy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#findstr%EF%BC%88%E5%BE%85%E6%95%B4%E7%90%86%EF%BC%89"><span class="toc-text">findstr（待整理）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#more"><span class="toc-text">more</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88CMD%EF%BC%89start%E5%91%BD%E4%BB%A4%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E8%B7%AF%E5%BE%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95"><span class="toc-text">（CMD）start命令带空格的路径处理办法</span></a></li></ol></div></div></div>
 
 
 
@@ -98,7 +100,121 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>windows命令行</span></h1>
-<h2 id="（CMD）start命令带空格的路径处理办法"><a href="#（CMD）start命令带空格的路径处理办法" class="headerlink" title="（CMD）start命令带空格的路径处理办法"></a>（CMD）start命令带空格的路径处理办法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start &quot;&quot; &quot;D:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands">microsoft learn</a></p>
+<p><a target="_blank" rel="noopener" href="https://miahsuwork.medium.com/%E7%AC%AC%E4%B8%80%E9%80%B1-command-line-%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4%E8%88%87%E6%93%8D%E4%BD%9C-f4da8bcfdfa">[第一週] Command Line 基本指令與操作. 學習目標：學會常見指令（例如說 cd、ls、rm、mv 等等） | by MiaHsu | Medium</a></p>
+</blockquote>
+<h2 id="CHEATSHEET"><a href="#CHEATSHEET" class="headerlink" title="CHEATSHEET"></a>CHEATSHEET</h2><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ver</td>
+<td align="center"><code>Microsoft Windows [版本 10.0.19045.3803]</code></td>
+</tr>
+<tr>
+<td align="center">whoami</td>
+<td align="center"><code>qaq\0202qiao</code></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="dir：输出文件列表"><a href="#dir：输出文件列表" class="headerlink" title="dir：输出文件列表"></a>dir：输出文件列表</h2><blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dir">dir | Microsoft Learn</a></p>
+<p>  <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/cmd-dir-command/"><strong>cmd | Dir command - GeeksforGeeks</strong></a></p>
+</blockquote>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dir</span> &gt;<span class="built_in">print</span>.txt</span><br><span class="line"><span class="built_in">dir</span> /b &gt;<span class="built_in">print</span>.txt #简洁模式</span><br><span class="line"><span class="built_in">dir</span> /s/b &gt;<span class="built_in">print</span>.txt #包含子目录</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DIR *.*  /B &gt;list.doc</span><br></pre></td></tr></table></figure>
+
+<p>如果你只要mp3格式的文件列表，输入的命令改为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DIR *.mp3  /B &gt;list.doc</span><br></pre></td></tr></table></figure>
+
+<p>如果想生成txt格式的列表文件，输入的命令改为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DIR *.*  /B &gt;list.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="tree：输出"><a href="#tree：输出" class="headerlink" title="tree：输出"></a>tree：输出</h2><blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tree">tree | Microsoft Learn</a></p>
+</blockquote>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tree</span> &gt; list.txt</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202401181351986.png" alt="例图2"></p>
+<p>参数：</p>
+<p>除此之外我们还有其他的参数可以设置：</p>
+<table>
+<thead>
+<tr>
+<th>命令行</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tree -d</td>
+<td>只显示文件夹</td>
+</tr>
+<tr>
+<td>tree -D</td>
+<td>显示文件的最后修改时间</td>
+</tr>
+<tr>
+<td>tree -L n</td>
+<td>n表示显示项目的层级，n&#x3D;3即只显示项目的三层结构</td>
+</tr>
+<tr>
+<td>tree -I pattern</td>
+<td>pattern表示想要过滤的目录，例如 tree -I “node_modules”可以过滤掉node_modules这个文件夹</td>
+</tr>
+</tbody></table>
+<p>注意，这里的参数-d、-D区分大小写，大家可以自行实验。</p>
+<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cd">cd | Microsoft Learn</a></p>
+</blockquote>
+<ol>
+<li><code>cd / </code>  <code>cd \drive</code>  # 電腦最底層到根目錄：</li>
+<li><code>cd ..</code>   回到上一層資料夾：</li>
+<li><code>cd .\</code>     相对路径</li>
+</ol>
+<h3 id="robocopy"><a href="#robocopy" class="headerlink" title="robocopy"></a>robocopy</h3><blockquote>
+<p>   多线程加快复制进度</p>
+<p>  <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy">robocopy | Microsoft Learn</a></p>
+<p>  <a target="_blank" rel="noopener" href="https://lazyadmin.nl/it/robocopy-ultimate-guide/">RoboCopy - Ultimate Guide with Examples — LazyAdmin</a></p>
+</blockquote>
+<h2 id="findstr（待整理）"><a href="#findstr（待整理）" class="headerlink" title="findstr（待整理）"></a>findstr（待整理）</h2><blockquote>
+<p>  <strong>grep替代</strong></p>
+</blockquote>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><blockquote>
+<p>  翻页读取文本 <code> | more</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir | more</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h1><h2 id="（CMD）start命令带空格的路径处理办法"><a href="#（CMD）start命令带空格的路径处理办法" class="headerlink" title="（CMD）start命令带空格的路径处理办法"></a>（CMD）start命令带空格的路径处理办法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start &quot;&quot; &quot;D:\Program Files (x86)\Tencent\TIM\Bin\QQScLauncher.exe&quot;</span><br></pre></td></tr></table></figure>
 
 <p>第一个参数为标题。 不管他。直接<code>“”</code>就可以了</p>
 
@@ -108,7 +224,7 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/12/21/cmake/cmake/">cmake</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/12/21/C%E8%AF%AD%E8%A8%80%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BD%8D%E6%93%8D%E4%BD%9C/">C语言位操作</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/12/21/%E6%89%BE%E5%B7%A5%E4%BD%9C/cmake/">cmake</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/12/21/C%E8%AF%AD%E8%A8%80%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%BD%8D%E6%93%8D%E4%BD%9C/">C语言位操作</a></div></section></div>
 
 
 
