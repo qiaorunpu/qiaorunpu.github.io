@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>关于波特率的几个问题</title>
+
+  
+    <meta name="description" content="传输速率与9600波特率首先， 波特率决定了串口的传输速率，可以说是串口通讯中最重要的概念之一了。 波特率这种东西本质就是每秒最多变化多少次，是由通信双方约定的东西，理论上1000的波特率 可以传输，现在有些军方非标准化应用场景中还存在12000这样奇怪数组的波特率，这个按下不表。 今天主要讨论一下，115200，9600这些常用波特率的来源。 首先，从通讯角度来讲，数据的传输包括调试器(编码器）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于波特率的几个问题">
+<meta property="og:url" content="http://example.com/2024/02/01/%E5%85%B3%E4%BA%8E%E6%B3%A2%E7%89%B9%E7%8E%87%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="传输速率与9600波特率首先， 波特率决定了串口的传输速率，可以说是串口通讯中最重要的概念之一了。 波特率这种东西本质就是每秒最多变化多少次，是由通信双方约定的东西，理论上1000的波特率 可以传输，现在有些军方非标准化应用场景中还存在12000这样奇怪数组的波特率，这个按下不表。 今天主要讨论一下，115200，9600这些常用波特率的来源。 首先，从通讯角度来讲，数据的传输包括调试器(编码器）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202402041023522.jpeg">
+<meta property="article:published_time" content="2024-02-01T03:18:10.000Z">
+<meta property="article:modified_time" content="2024-02-04T06:20:39.590Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202402041023522.jpeg">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='posts'>
+    
+
+  
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">学习笔记</div></a></div>
+
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets"></div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/2024/02/01/%E5%85%B3%E4%BA%8E%E6%B3%A2%E7%89%B9%E7%8E%87%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98/">关于波特率的几个问题</a></div></div>
+
+<article class='content md posts'>
+<h1 class="article-title"><span>关于波特率的几个问题</span></h1>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="传输速率与9600波特率"><a href="#传输速率与9600波特率" class="headerlink" title="传输速率与9600波特率"></a>传输速率与9600波特率</h2><p>首先，</p>
+<p>波特率决定了串口的传输速率，可以说是串口通讯中最重要的概念之一了。</p>
+<p>波特率这种东西本质就是每秒最多变化多少次，是由通信双方约定的东西，理论上1000的波特率 可以传输，现在有些军方非标准化应用场景中还存在12000这样奇怪数组的波特率，这个按下不表。</p>
+<p>今天主要讨论一下，115200，9600这些常用波特率的来源。</p>
+<p>首先，从通讯角度来讲，数据的传输包括调试器(编码器），解调器（解码器），编码方法，传输介质，应用层这几部分构成。</p>
+<blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TM9w9uR74Py6sGUyRquIvA">现代通讯业的开端电报的历史</a></p>
+</blockquote>
+<p>以最原始的采用摩尔斯电报机为例，电线就是传输介质。发报机是一个手压式开关，接收机是一个电磁铁和衔铁，发报机有两根线与接收机的电磁铁线圈连接，工作时发报机压下开关，接收机电磁铁得电产生磁场把衔铁吸下来，如果在衔铁上装上铅笔，衔铁下面放上匀速移动的纸张，就可以记录一些信息，比如：通电0.1秒定义为“0”，叫做“点”，通电0.3秒定义为“1”，叫做“—”，如果用点和横代表不同的意思就可以对文字、符号、数字等进行编码（摩尔斯电码），解码也是按照打印出来的点和横的组合对照电码本解码。</p>
+<blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_interface_bit_rates">List of interface bit rates - Wikipedia</a></p>
+</blockquote>
+<p>这里可以看出电报的传输速率取决于作为解码编码的发报人员和收报文人员的熟练程度，熟练程度高，发送频率就高，wiki上介绍，可以传输每秒可以传输字节，相当于0.021 kbit&#x2F;s。</p>
+<p>之后，电话巨头贝尔公司推出了Bell 101 modem和Bell 103 modem。两者均采用电话线作为传输介质，电话网是为300～3400HZ 之间的音频信号设计的,这对二进制数据的传输不适合，需要将二进制信号调制成相应的音频信号。</p>
+<p>其中Bell 101 modem采用110 baud 的调制ietiao速率</p>
+<p>其中Bell 103 modem 选择300 bps的传输速率，采用FSK（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Audio_frequency-shift_keying">frequency-shift keying</a> ）编码数据，根据<a target="_blank" rel="noopener" href="https://retrocomputing.stackexchange.com/questions/309/why-did-the-bell-103-modem-use-a-data-rate-of-300-bps/438">Stack Exchange</a>的解释，10 CPS&#x2F;110 Baud</p>
+<p>波特率的</p>
+<p>可编程波特率：可以根据需要自行设置波特率，适用于一些特殊应用场景。</p>
+<h2 id="为什么串口波特率是这些数值"><a href="#为什么串口波特率是这些数值" class="headerlink" title="为什么串口波特率是这些数值"></a>为什么串口波特率是这些数值</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://electronics.stackexchange.com/questions/9264/what-standard-uart-rates-are-there">What standard UART rates are there? - Electrical Engineering Stack Exchange</a></li>
+</ul>
+<p>RealTerm，一个免费的Windows终端程序，在其Baud菜单中列出了这些UART速率： </p>
+<p>110, 150, 300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600 </p>
+<p>然而，这些实际上是比特每秒（bps），而不是波特——请参阅下文。 像ASR-33这样的8级电传打字机使用110波特。我不知道150波特在哪里使用，但它是75波特的两倍，通常用于5级TTY（与60波特一起）。</p>
+<p> 300bps是20世纪60年代第一个广泛使用的电话调制解调器的标准。每秒30个字符的终端同时出现。 </p>
+<blockquote>
+<p>  Above 300 bps&#x2F;300 baud, which used simple frequency shift keying (FSK), the figures for bps and baud (symbols or tones per second) are not the same. For example, a 1200 bps modem actually runs at 600 baud, and a 4800 bps modem runs at 1600 baud. Refer to the table under Bandwidths in this <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/List_of_device_bandwidths">article</a>. The difference is because in addition to using a certain number of tone pulses per second, phase-shift keying and <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Quadrature_Amplitude_Modulation">other methods</a> are used to extract additional bandwidth from the same baud rate to get higher and higher bps. (So a 56K modem is actually only running at 8000 baud.)</p>
+</blockquote>
+<p>在使用简单频移键控（FSK）的300 bps&#x2F;300波特以上，bps和波特（每秒符号或音调）的数字不相同。例如，1200 bps的调制解调器实际以600波特运行，4800 bps的调制解调器以1600波特运行。请参阅本文中“带宽”下的表格。不同之处在于，除了每秒使用一定数量的音调脉冲外，还使用相移键控和其他方法从相同的波特率中提取额外的带宽，以获得越来越高的bps。（因此，56K调制解调器实际上仅以8000波特运行。）</p>
+<blockquote>
+<p>  As you can see, the list of UART rates essentially started at 75 and continually doubled (skipping 600), until getting to 38400, where it was multiplied by 1.5 to get 57600. 56K bps is the limit for an analog telephone line. The higher rates 115200 upwards (once again doubling starting at 57600) are used for hard-wired connections.</p>
+</blockquote>
+<p> 正如您所看到的，UART速率列表基本上从75开始，并不断翻倍（跳过600），直到达到38400，再乘以1.5，得到57600。56K bps是模拟电话线的限制。更高的速率115200以上（再次从57600开始加倍）用于硬接线连接。 </p>
+<blockquote>
+<p>  As mikeselectricstuff mentioned, 14400 and 28800 bps were introduced as 1.5 x 9600 and 1.5 x 19200 when modems speeds couldn’t be doubled at the time, but are seldom used anymore.</p>
+</blockquote>
+<p>正如mikeelectricstuff所提到的，14400和28800 bps被引入为1.5 x 9600和1.5 x 19200，当时调制解调器的速度无法翻倍，但很少再使用。</p>
+<h2 id="波特码电传打字机和75baud"><a href="#波特码电传打字机和75baud" class="headerlink" title="波特码电传打字机和75baud"></a>波特码电传打字机和75baud</h2><ul>
+<li>请注意，在电传打印机之前的是：采用moss code的电报机</li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Teleprinter">Teleprinter - Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Baudot_code">Baudot code</a></li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202402041023522.jpeg" alt="img"></p>
+<p>最常见的baudot数据速度范围为45.45到100 bauds，或约60到133 wpm。更高的速度是使用美国国家信息交换标准代码（ASCII）获得的。这是一种用于电传打字机信息传输的七单元数字代码。ASCII主要用于计算机系统，但也用于某些电传打字机应用程序。国防通信系统电传操作的标准速度为**100 wpm或75波特。[^引用1]</p>
+<p>[^引用1]: <a target="_blank" rel="noopener" href="https://electronicstechnician.tpub.com/14088/css/Modulation-Rate-40.htm#:~:text=The%20Defense%20Communications%20System%20standard,in%20a%2060-second%20period.">MODULATION  RATE</a></p>
+<h2 id="波特率和比特率"><a href="#波特率和比特率" class="headerlink" title="波特率和比特率"></a>波特率和比特率</h2><ul>
+<li>即单位时间内<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%BD%BD%E6%B3%A2">载波</a>调制状态变化的次数</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%B3%A2%E7%89%B9%E7%8E%87">波特率 - 维基百科，自由的百科全书</a></p>
+<p><a target="_blank" rel="noopener" href="https://solace.com/blog/what-is-baud-rate-bit-rate/">What is Baud Rate and How Does it Relate to Bit Rate? | Solace</a></p>
+<h2 id="串口"><a href="#串口" class="headerlink" title="串口"></a>串口</h2><ul>
+<li>UART: Universal Asynchronous Receiver&#x2F;Transmitter 通用异步接收&#x2F;发送器</li>
+</ul>
+<p>在reddit<a target="_blank" rel="noopener" href="https://www.reddit.com/user/psycoee/">@psycoee</a> 在<a target="_blank" rel="noopener" href="https://www.reddit.com/r/ECE/comments/5rtpfl/comment/dda7mpg/?utm_source=share&utm_medium=web2x&context=3">Why 9600 bps? : ECE</a>中解释了为什么串口是9600</p>
+<blockquote>
+<p>  Wow, I like how nobody in this thread mentioned the real reason. Serial communication was originally used for electromechanical teletypewriters, starting in the 19th century. Incidentally, that’s why standard RS232 voltages are +&#x2F;-25V. Teletypewriters operated at a fixed speed that was set by their mechanisms. A popular baud rate was 75 baud, which corresponded to about 100 words per minute, which is about the most a trained typist could do on one of those machines. Some of the first modems operated at that speed, then 150 baud, then 300 baud, and then 1200, 2400, and 9600 baud. This was before PLLs were common (or cheap), so if you wanted a modem to be compatible with older systems, a power of two ratio was the only practical one.</p>
+</blockquote>
+<p>串行通信最初用于机电电传打字机，始于19世纪。顺便说一句，这就是为什么标准RS232电压为+&#x2F;-25V。电传打字机以由其机械装置设定的固定速度工作。<strong>流行的波特率是75波特</strong>，相当于每分钟大约100个单词，这大约是受过训练的打字员在其中一台机器上能做的最多的事情。第一批调制解调器中的一些调制解调器以该速度工作，<strong>然后是150波特，然后是300波特，再然后是1200、2400和9600波特</strong>。这是在<strong>PLL普及（或便宜）</strong>之前，所以如果你想让调制解调器与旧系统兼容，二次方比例是唯一实用的。</p>
+<blockquote>
+<p>  Standard baud rates up to 19200 are all in the form 300 *2n bps. This is because doubling or halving a clock speed is easy compared to arbitrary values. When you made a connection over the phone it would negotiate a speed with the other side, and then they’d talk at the highest speed they could manage.</p>
+<p>  28.8k and 56k (which is really 57600) and above are multiples of 2 on the base speed of 14400. I still regularly use 115200 and 230400 which are multiples of 14400.</p>
+</blockquote>
+<p>最高19200的标准波特率均为300*2n bps。这是因为与任意值相比，将时钟速度加倍或减半很容易。当你通过电话建立连接时，它会与对方协商速度，然后他们会以他们能控制的最高速度交谈。 28.8k和56k（实际上是57600）及以上是在14400的基本速度上的2的倍数。我仍然经常使用115200和230400，它们是14400的倍数。</p>
+
+
+<div class="article-footer reveal fs14"></div>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本站由 <a href="/">@anonymity</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.15.1';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.15.1';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js'
+  };
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

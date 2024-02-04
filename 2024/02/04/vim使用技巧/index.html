@@ -20,20 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>产品开发流程</title>
+  <title>vim使用技巧</title>
 
   
-    <meta name="description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状态   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态  通信波特率，有无校验位，发送频率  温补前，温补后的结果  温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  产品轴向是否正常  通信协议是否符合任务书要求">
+    <meta name="description" content="命令行 退出1ESC+：（注意是英文冒号  打开1sudo vim 1.txt  插入1234567891011i 在当前位置生前插入I 在当前行首插入a 在当前位置后插入A 在当前行尾插入o 在当前行之后插入一行O 在当前行之前插入一行  查找命令1234&#x2F;text　　查找text，按n健查找下一个，按N健查找前一个。?text　　查找text，反向查找，按n健查找下一个，按N健查找前一个。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="产品开发流程">
-<meta property="og:url" content="http://example.com/2023/02/27/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
+<meta property="og:title" content="vim使用技巧">
+<meta property="og:url" content="http://example.com/2024/02/04/vim%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状态   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态  通信波特率，有无校验位，发送频率  温补前，温补后的结果  温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  产品轴向是否正常  通信协议是否符合任务书要求">
+<meta property="og:description" content="命令行 退出1ESC+：（注意是英文冒号  打开1sudo vim 1.txt  插入1234567891011i 在当前位置生前插入I 在当前行首插入a 在当前位置后插入A 在当前行尾插入o 在当前行之后插入一行O 在当前行之前插入一行  查找命令1234&#x2F;text　　查找text，按n健查找下一个，按N健查找前一个。?text　　查找text，反向查找，按n健查找下一个，按N健查找前一个。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-02-27T06:40:55.000Z">
-<meta property="article:modified_time" content="2024-01-31T09:31:36.324Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202402041057450.png">
+<meta property="article:published_time" content="2024-02-04T02:55:58.000Z">
+<meta property="article:modified_time" content="2024-02-04T02:57:35.334Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202402041057450.png">
   
   
 
@@ -79,7 +81,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">产品开发流程</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">需要注意的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E4%BF%9D%E5%AD%98%E7%9A%84"><span class="toc-text">需要保存的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#README%E6%A8%A1%E6%9D%BF"><span class="toc-text">README模板</span></a></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">vim使用技巧</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">命令行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%80%E5%87%BA"><span class="toc-text">退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80"><span class="toc-text">打开</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-text">插入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-text">查找命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A"><span class="toc-text">撤销和重做</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E5%91%BD%E4%BB%A4"><span class="toc-text">退出命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim%E6%95%99%E7%A8%8B"><span class="toc-text">Vim教程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A"><span class="toc-text">附录：</span></a></li></ol></div></div></div>
 
 
 
@@ -94,79 +96,29 @@
       
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E5%B7%A5%E4%BD%9C/%E8%BD%AF%E4%BB%B6/">软件</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:40:55.000Z">2023-02-27</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/linux/">linux</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/linux/vim/">vim</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2024-02-04T02:55:58.000Z">2024-02-04</time></div></div>
 
 <article class='content md post'>
-<h1 class="article-title"><span>产品开发流程</span></h1>
-<h1 id="产品开发流程"><a href="#产品开发流程" class="headerlink" title="产品开发流程"></a>产品开发流程</h1><h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><ul>
-<li><p>单片机软件开发</p>
-<ul>
-<li>软件功能实现</li>
-<li>设置产品状态</li>
-</ul>
-</li>
-<li><p>MATLAB解包代码</p>
-</li>
-<li><p>上传GIT</p>
-<ul>
-<li>说明文档「协议文档和README」</li>
-<li>解包代码</li>
-<li>产品电路图</li>
-</ul>
-</li>
-<li><p>交付楼下测试状态</p>
-</li>
-</ul>
-<h2 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h2><ol>
-<li><p>产品状态</p>
-<ul>
-<li><p>通信波特率，有无校验位，发送频率</p>
-</li>
-<li><p>温补前，温补后的结果</p>
-</li>
-<li><p>温补参数是否正常「<strong>温补参数中的温度信息是否工作正常</strong>」</p>
-</li>
-</ul>
-</li>
-<li><p>软件信息</p>
-<ul>
-<li><p>产品轴向是否正常</p>
-</li>
-<li><p>通信协议是否符合任务书要求「临时协议是否删除」</p>
-</li>
-<li><p>输出标度因数是否正常</p>
-</li>
-<li><p>量程范围是否正常</p>
-</li>
-</ul>
-</li>
-<li><p>出场测试</p>
-<ul>
-<li>产品各项指标是否符合要求</li>
-</ul>
-</li>
+<h1 class="article-title"><span>vim使用技巧</span></h1>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/qiaorunpu/blog-img/img/202402041057450.png" alt="image-20240204105729347"></p>
+<h3 id="退出"><a href="#退出" class="headerlink" title="退出"></a>退出</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ESC+：（注意是英文冒号</span><br></pre></td></tr></table></figure>
+
+<h3 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim 1.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i 在当前位置生前插入</span><br><span class="line"></span><br><span class="line">I 在当前行首插入</span><br><span class="line"></span><br><span class="line">a 在当前位置后插入</span><br><span class="line"></span><br><span class="line">A 在当前行尾插入</span><br><span class="line"></span><br><span class="line">o 在当前行之后插入一行</span><br><span class="line"></span><br><span class="line">O 在当前行之前插入一行</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/text　　查找text，按n健查找下一个，按N健查找前一个。</span><br><span class="line"></span><br><span class="line">?text　　查找text，反向查找，按n健查找下一个，按N健查找前一个。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">u 撤销（Undo）</span><br><span class="line">U 撤销对整行的操作</span><br><span class="line">Ctrl + r 重做（Redo），即撤销的撤销。</span><br></pre></td></tr></table></figure>
+
+<h3 id="退出命令"><a href="#退出命令" class="headerlink" title="退出命令"></a>退出命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:wq 保存并退出</span><br><span class="line">ZZ 保存并退出</span><br><span class="line">:q! 强制退出并忽略所有更改</span><br><span class="line">:e! 放弃所有修改，并打开原来文件。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vim教程"><a href="#Vim教程" class="headerlink" title="Vim教程"></a>Vim教程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在Unix系统上</span><br><span class="line">$ vimtutor</span><br><span class="line">在Windows系统上</span><br><span class="line">:help tutor</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/292359424/answer/480126083">现在学习Java到底还要不要学习ssh</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34455520"><em>SSH</em>客户端神器MobaXterm，是时候放弃putty、Xshell和CRT了</a></li>
 </ol>
-<h2 id="需要保存的"><a href="#需要保存的" class="headerlink" title="需要保存的"></a>需要保存的</h2><ul>
-<li><p>产品状态的说明文件　产品开发基于哪个代码 README．MD</p>
-</li>
-<li><p>软件开发的测试数据</p>
-</li>
-<li><p>温补数据</p>
-</li>
-<li><p>产品指标测试数据</p>
-</li>
-</ul>
-<h1 id="软件开发时候的易错点"><a href="#软件开发时候的易错点" class="headerlink" title="软件开发时候的易错点"></a>软件开发时候的易错点</h1><ul>
-<li>变量是否在每次重置的时候都会重置</li>
-<li>对正负数的判断是否正常，<strong>「补码」</strong></li>
-</ul>
-<h2 id="README模板"><a href="#README模板" class="headerlink" title="README模板"></a>README模板</h2><ul>
-<li>基本硬件类型</li>
-<li>通信波特率，有无校验位，发送频率</li>
-<li>产品轴向是否正常</li>
-<li>量程范围是否正常</li>
-<li>参数地址计算</li>
-</ul>
 
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
@@ -174,7 +126,7 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2023/02/27/apt%E5%91%BD%E4%BB%A4%E9%9B%86%E9%94%A6/">apt命令集锦</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2023/02/27/%E5%A6%82%E4%BD%95%E8%AE%A9%E8%BD%AF%E4%BB%B6%E8%B5%B0%E4%BB%A3%E7%90%86/">如何让软件走代理</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">Older</div><a href="/2024/02/04/MARKDOWN%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">MARKDOWN使用技巧</a></div></section></div>
 
 
 
