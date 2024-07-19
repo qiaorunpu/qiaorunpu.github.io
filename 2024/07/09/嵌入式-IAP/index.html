@@ -23,14 +23,17 @@
   <title>嵌入式-IAP</title>
 
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="APP中断向量表重映射（SCB-&gt;VTOR）System Control Block中存在一个向量表偏移量寄存器 VTOR(0xE000ED08)，系统产生中断后，内核通过这个寄存器的值来找到中断向量表的地址，进而执行中断例程代码， 首先调用systemInit函数初始化时钟系统，同时systemInit还完成了中断向量表的设置，我们可以打开systemInit函数，看看函数体的结尾处有这样">
+<meta property="og:type" content="article">
 <meta property="og:title" content="嵌入式-IAP">
 <meta property="og:url" content="http://example.com/2024/07/09/%E5%B5%8C%E5%85%A5%E5%BC%8F-IAP/index.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="APP中断向量表重映射（SCB-&gt;VTOR）System Control Block中存在一个向量表偏移量寄存器 VTOR(0xE000ED08)，系统产生中断后，内核通过这个寄存器的值来找到中断向量表的地址，进而执行中断例程代码， 首先调用systemInit函数初始化时钟系统，同时systemInit还完成了中断向量表的设置，我们可以打开systemInit函数，看看函数体的结尾处有这样">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-09T03:32:44.000Z">
-<meta property="article:modified_time" content="2024-07-09T03:32:44.745Z">
+<meta property="article:modified_time" content="2024-07-19T08:28:10.405Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
   
   
@@ -77,7 +80,7 @@
 
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
 
       
@@ -87,6 +90,16 @@
 
 <article class='content md posts'>
 <h1 class="article-title"><span>嵌入式-IAP</span></h1>
+<h2 id="APP中断向量表重映射（SCB-gt-VTOR）"><a href="#APP中断向量表重映射（SCB-gt-VTOR）" class="headerlink" title="APP中断向量表重映射（SCB-&gt;VTOR）"></a>APP中断向量表重映射（SCB-&gt;VTOR）</h2><p>System Control Block中存在一个向量表偏移量寄存器 VTOR(0xE000ED08)，系统产生中断后，内核通过这个寄存器的值来找到中断向量表的地址，进而执行中断例程代码，</p>
+<p>首先调用systemInit函数初始化时钟系统，同时systemInit还完成了中断向量表的设置，我们可以打开systemInit函数，看看函数体的结尾处有这样几行代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SCB-&gt;VTOR = SRAM_BASE | VECT_TAB_OFFSET;</span><br></pre></td></tr></table></figure>
+
+<p>从代码可以理解，VTOR寄存器存放的是中断向量表的起始地址。默认的情况VECT_TAB_SRAM是没有定义,所以执行SCB-&gt;VTOR &#x3D; FLASH_BASE | VECT_TAB_OFFSET; 对于FLASH APP，我们设置为FLASH_BASE+偏移量0x10000,所以我们可以在FLASH APP的main函数最开头处添加如下代码实现中断向量表的起始地址的重设：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SCB-&gt;VTOR = FLASH_BASE | 0x10000;</span><br></pre></td></tr></table></figure>
+
+<p>  如果是APP2可以设置为SCB-&gt;VTOR &#x3D; FLASH_BASE | 0x20000;</p>
+<p>  如果是APP3可以设置为SCB-&gt;VTOR &#x3D; FLASH_BASE | 0x30000;</p>
+<p>这样，我们就完成了中断向量表偏移量的设置。</p>
 
 
 <div class="article-footer reveal fs14"></div>
