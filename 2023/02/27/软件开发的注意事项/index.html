@@ -23,15 +23,15 @@
   <title>产品开发流程</title>
 
   
-    <meta name="description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状态   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态  通信波特率，有无校验位，发送频率  温补前，温补后的结果  温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  产品轴向是否正常  通信协议是否符合任务书要求">
+    <meta name="description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状态   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态    通信波特率，有无校验位，发送频率    温补前，温补后的结果    温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  5min 常温  产品轴向是否正常">
 <meta property="og:type" content="article">
 <meta property="og:title" content="产品开发流程">
 <meta property="og:url" content="http://example.com/2023/02/27/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状态   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态  通信波特率，有无校验位，发送频率  温补前，温补后的结果  温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  产品轴向是否正常  通信协议是否符合任务书要求">
+<meta property="og:description" content="产品开发流程整体流程 单片机软件开发  软件功能实现 设置产品状态   MATLAB解包代码  上传GIT  说明文档「协议文档和README」 解包代码 产品电路图   交付楼下测试状态   需要注意的问题 产品状态    通信波特率，有无校验位，发送频率    温补前，温补后的结果    温补参数是否正常「温补参数中的温度信息是否工作正常」    软件信息  5min 常温  产品轴向是否正常">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-27T06:40:55.000Z">
-<meta property="article:modified_time" content="2024-01-31T09:31:36.324Z">
+<meta property="article:modified_time" content="2024-07-04T06:15:46.792Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -120,24 +120,30 @@
 <h2 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h2><ol>
 <li><p>产品状态</p>
 <ul>
-<li><p>通信波特率，有无校验位，发送频率</p>
+<li><p><input disabled="" type="checkbox"> 
+通信波特率，有无校验位，发送频率</p>
 </li>
-<li><p>温补前，温补后的结果</p>
+<li><p><input disabled="" type="checkbox"> 
+温补前，温补后的结果</p>
 </li>
-<li><p>温补参数是否正常「<strong>温补参数中的温度信息是否工作正常</strong>」</p>
+<li><p><input disabled="" type="checkbox"> 
+温补参数是否正常「<strong>温补参数中的温度信息是否工作正常</strong>」</p>
 </li>
 </ul>
 </li>
 <li><p>软件信息</p>
 <ul>
-<li><p>产品轴向是否正常</p>
-</li>
-<li><p>通信协议是否符合任务书要求「临时协议是否删除」</p>
-</li>
-<li><p>输出标度因数是否正常</p>
-</li>
-<li><p>量程范围是否正常</p>
-</li>
+<li>5min 常温</li>
+<li><input disabled="" type="checkbox"> 产品轴向是否正常</li>
+<li><input disabled="" type="checkbox"> 通信协议是否符合任务书要求「临时协议是否删除」</li>
+<li><input disabled="" type="checkbox"> 输出标度因数是否正常</li>
+<li><input disabled="" type="checkbox"> 量程范围是否正常</li>
+<li><input disabled="" type="checkbox"> 限幅</li>
+<li><input disabled="" type="checkbox"> 跳点（数据）</li>
+<li><input disabled="" type="checkbox"> 自检状态字验证（恒值，超量程，自检不过）</li>
+<li><input disabled="" type="checkbox"> 融合（离心机）</li>
+<li><input disabled="" type="checkbox"> 扣零（重复性，影不影响非线性，分辨率）</li>
+<li><input disabled="" type="checkbox"> bootloader上电启动时间是否小于任务书要求（示波器测试）</li>
 </ul>
 </li>
 <li><p>出场测试</p>
@@ -147,7 +153,7 @@
 </li>
 </ol>
 <h2 id="需要保存的"><a href="#需要保存的" class="headerlink" title="需要保存的"></a>需要保存的</h2><ul>
-<li><p>产品状态的说明文件　产品开发基于哪个代码 README．MD</p>
+<li><p>产品状态的说明文件　产品开发基于哪个代码 README.MD</p>
 </li>
 <li><p>软件开发的测试数据</p>
 </li>
@@ -157,7 +163,7 @@
 </li>
 </ul>
 <h1 id="软件开发时候的易错点"><a href="#软件开发时候的易错点" class="headerlink" title="软件开发时候的易错点"></a>软件开发时候的易错点</h1><ul>
-<li>变量是否在每次重置的时候都会重置</li>
+<li>变量是否在每次函数调用得时候都会重置</li>
 <li>对正负数的判断是否正常，<strong>「补码」</strong></li>
 </ul>
 <h2 id="README模板"><a href="#README模板" class="headerlink" title="README模板"></a>README模板</h2><ul>

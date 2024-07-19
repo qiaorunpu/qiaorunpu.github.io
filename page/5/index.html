@@ -20,18 +20,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
   
-  <title>C语言位操作</title>
+  <title>学习笔记</title>
 
   
-    <meta name="description" content="FLASH 读写写入123456float  calibrationData[3];		FLASH_Unlock();	OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&amp;err);FLASH_EraseSector(FLASH_Sector_3,VoltageRange_3);FLASH_Lock();						STMFLASH_Write(Cor">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C语言位操作">
-<meta property="og:url" content="http://example.com/2024/01/09/FLASH%20%E8%AF%BB%E5%86%99/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="学习笔记">
+<meta property="og:url" content="http://example.com/page/5/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="FLASH 读写写入123456float  calibrationData[3];		FLASH_Unlock();	OSTimeDlyHMSM(0,0,0,50,OS_OPT_TIME_PERIODIC,&amp;err);FLASH_EraseSector(FLASH_Sector_3,VoltageRange_3);FLASH_Lock();						STMFLASH_Write(Cor">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-01-09T05:51:53.000Z">
-<meta property="article:modified_time" content="2024-01-09T03:22:26.899Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -60,10 +56,8 @@
   
 
 
-
-
   <div class='l_body' id='start'>
-    <aside class='l_left' layout='post'>
+    <aside class='l_left' layout=''>
     
 
   
@@ -78,42 +72,108 @@
 
 
 <div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap theme dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅 <a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">C语言位操作</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5"><span class="toc-text">写入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96"><span class="toc-text">读取</span></a></li></ol></div></div></div>
-
-
+<div class="widget-wrap" id="recent"><div class="widget-header cap theme dis-select"><span class="name">Recent Update</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/2024/07/19/%E5%B5%8C%E5%85%A5%E5%BC%8F-FLASH%E6%93%8D%E4%BD%9C/"><span class="title">嵌入式-FLASH操作</span></a><a class="item title" href="/2024/07/15/%E5%B5%8C%E5%85%A5%E5%BC%8F-CRC/"><span class="title">嵌入式-CRC</span></a><a class="item title" href="/2024/07/15/C%E8%AF%AD%E8%A8%80-string/"><span class="title">C语言-string</span></a><a class="item title" href="/2024/07/09/%E5%B5%8C%E5%85%A5%E5%BC%8F-IAP/"><span class="title">嵌入式-IAP</span></a><a class="item title" href="/2024/07/05/%E5%B5%8C%E5%85%A5%E5%BC%8F-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/"><span class="title">嵌入式-计算机原理</span></a></div></div>
 
 
 </div>
 
 
     </aside>
-    <div class='l_main'>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">学习笔记</div></a></div>
+</header>
+
+
+
       
 
-      
+
+  
+
+<div class="nav-wrap"><nav class="sub post cap"><a class="active" href="/">Recent</a><a href="/categories">Categories</a><a href="/tags">Tags</a><a href="/archives">Archives</a></nav></div>
+
+  <div class="post-list post"><a class="post-card post " href="/2023/02/27/apt%E5%91%BD%E4%BB%A4%E9%9B%86%E9%94%A6/">
+<article class="md"><h2 class="post-title">apt命令集锦</h2><div class="excerpt"><p>
+删除缓存中的所有包
+
+1apt-get clean
+
+在使用apt-get install [packege]安装多个包以后，最后追加上述命令，清除缓存中下载的包，系统环境洁癖。
+
+删除指定软件包，保留被删除包的配置文件
+
+1apt-get remove [package name]
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/STM32%E5%A4%96%E8%AE%BE/">STM32外设</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2024-01-09T05:51:53.000Z">2024-01-09</time></div></div>
+删除指定软件包，不保留被删除包的配置文件
 
-<article class='content md post'>
-<h1 class="article-title"><span>C语言位操作</span></h1>
-<h1 id="FLASH-读写"><a href="#FLASH-读写" class="headerlink" title="FLASH 读写"></a>FLASH 读写</h1><h3 id="写入"><a href="#写入" class="headerlink" title="写入"></a>写入</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span>  calibrationData[<span class="number">3</span>];		</span><br><span class="line">FLASH_Unlock();	</span><br><span class="line">OSTimeDlyHMSM(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">50</span>,OS_OPT_TIME_PERIODIC,&amp;err);</span><br><span class="line">FLASH_EraseSector(FLASH_Sector_3,VoltageRange_3);</span><br><span class="line">FLASH_Lock();						</span><br><span class="line">STMFLASH_Write(Correct_SAVE_ADDR,(<span class="type">int32_t</span>*)&amp;calibrationData,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+1apt-get --purge remove [pack...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:40:55.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
+</a><a class="post-card post " href="/2023/02/27/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+<article class="md"><h2 class="post-title">产品开发流程</h2><div class="excerpt"><p>产品开发流程整体流程
+单片机软件开发
 
-<h3 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  调用STMFLASH_Read</span></span><br><span class="line"><span class="type">float</span>  calibrationData[<span class="number">3</span>];		</span><br><span class="line">	STMFLASH_Read(Correct_SAVE_ADDR,(<span class="type">int32_t</span>*)&amp;(calibrationData),<span class="number">3</span>);</span><br><span class="line"><span class="comment">// 指针取值，将 addr 强制转换为 float 指针，然后取该指针所指向的地址的值，即得到了 addr 地址的值。</span></span><br><span class="line">data=*(<span class="type">float</span>*)addr;</span><br><span class="line"><span class="comment">// 定义指针，将 Quotient_SAVE_ADDR 强制转换为 float(*)[3] 指针，然后取该指针所指向的地址的值，即得到了 addr 地址的值。</span></span><br><span class="line"><span class="type">float</span> (*calibrationData)[<span class="number">3</span>]=(<span class="type">float</span>(*)[<span class="number">3</span>])(Quotient_SAVE_ADDR);</span><br></pre></td></tr></table></figure>
-
-
-
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a>许可协议，转载请注明出处。</p>
-</div></section></div>
-
-</article>
-
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">Newer</div><a href="/2024/01/25/office%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">office使用技巧</a></div><div class="item" id="next"><div class="note">Older</div><a href="/2024/01/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/">计算机原理</a></div></section></div>
+软件功能实现
+设置产品状态
 
 
+MATLAB解包代码
+
+上传GIT
+
+说明文档「协议文档和README」
+解包代码
+产品电路图
 
 
+交付楼下测试状态
+
+
+需要注意的问题
+产品状态
+
+ 
+通信波特率，有无校验位，发送频率
+
+ 
+温补前，温补后的结果
+
+ 
+温补参数是否正常「温补参数中的温度信息是否工作正常」
+
+
+
+软件信息
+
+5min 常温
+ 产品轴向是...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T06:40:55.000Z">2023-02-27</time></span><span class="cap breadcrumb">工作</span></div></article>
+</a><a class="post-card post " href="/2023/02/27/%E5%A6%82%E4%BD%95%E8%AE%A9%E8%BD%AF%E4%BB%B6%E8%B5%B0%E4%BB%A3%E7%90%86/">
+<article class="md"><h2 class="post-title">如何让软件走代理</h2><div class="excerpt"><p>[toc]
+DockerDockerfile 更改apt源在Dockerfile中添加如下两句代码：
+12RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.listRUN  apt-get clean
+
+更新apt源的Dockerfile如下：
+123456FROM ubuntu:latest...</p></div><div class="meta cap"><span class="cap" id="post-meta">Posted on&nbsp;<time datetime="2023-02-27T04:31:57.000Z">2023-02-27</time></span><span class="cap breadcrumb">linux</span></div></article>
+</a></div>
+  
+  <div class='paginator-wrap dis-select'>
+    <a class='paginator prev' href='/page/4/'>
+      <img src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/arrow/f049bbd4e88ec.svg'/>
+    </a>
+    <div class='paginator current'>
+      5<span class='sep'></span>5
+    </div>
+    <a class='paginator next disable' href='/'>
+      <img src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/arrow/064b95430caf4.svg'/>
+    </a>
+  </div>
 
 
 
