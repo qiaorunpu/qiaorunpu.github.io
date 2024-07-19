@@ -31,7 +31,7 @@
 <meta property="og:description" content="APP中断向量表重映射（SCB-&gt;VTOR）System Control Block中存在一个向量表偏移量寄存器 VTOR(0xE000ED08)，系统产生中断后，内核通过这个寄存器的值来找到中断向量表的地址，进而执行中断例程代码， 首先调用systemInit函数初始化时钟系统，同时systemInit还完成了中断向量表的设置，我们可以打开systemInit函数，看看函数体的结尾处有这样">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-09T03:32:44.000Z">
-<meta property="article:modified_time" content="2024-07-19T08:28:10.405Z">
+<meta property="article:modified_time" content="2024-07-09T03:32:44.000Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
